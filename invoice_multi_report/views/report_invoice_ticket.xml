@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Pega aquí tu template Ticket -->
 <odoo>
-<template id="assets_frontend" inherit_id="web.assets_frontend" name="invoice_multi_report_assets" priority="100">
-<xpath expr="link[last()]" position="after">
-<link rel="stylesheet" type="text/css" href="/invoice_multi_report/static/src/css/ticket.css"/>
-</xpath>
+<template id="report_invoice_ticket_template">
+    <t t-call="web.html_container">
+      <t t-call-assets="invoice_multi_report.ticket_css"/>
+      <div class="ticket-paper">
+        <!-- contenido del ticket -->
+      </div>
+    </t>
 </template>
+
+<template id="ticket_css" name="Ticket CSS" inherit_id="">
+    <style type="text/css">
+        /* Aquí pega todo el contenido de ticket.css */
+        .ticket-paper { width: 78mm; margin: 0; padding: 6px; font-family: "DejaVu Sans", "Arial", sans-serif; font-size: 10px; }
+        .ticket-header { text-align: center; }
+        .ticket-lines { width: 100%; border-collapse: collapse; font-size: 10px; }
+        .ticket-lines td, .ticket-lines th { padding: 2px 0; }
+        .small { font-size: 9px; }
+        .bold { font-weight: 700; }
+        .right { text-align: right; }
+    </style>
+</template>
+
 <template id="report_invoice_ticket_template">
 <t t-call="web.html_container">
 <div class="ticket-paper">
